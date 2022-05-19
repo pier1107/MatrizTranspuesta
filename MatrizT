@@ -1,0 +1,76 @@
+package MatrizT;
+import javax.swing.*;
+public class Matriz {
+
+    private int matriz[][];
+
+    private int fila;
+
+    private int columna;
+
+    private int n;
+    private int matrizTrans[][];
+    public Matriz()
+    {
+        fila = Integer.parseInt(JOptionPane.showInputDialog("Ingresar Fila"));
+
+        columna = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Columna"));
+
+        this.matriz = new int[fila][columna];
+    }
+
+    public void agregarMatriz()
+    {
+        for (int fila=0; fila < this.matriz.length; fila++)
+        {
+            for (int columna=0; columna < this.matriz[fila].length; columna++)
+            {
+                this.n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Valores"));
+
+                this.matriz[fila][columna] = this.n;
+            }
+        }
+    }
+
+    public void mostrarMatriz(){
+    System.out.println("Matriz Original");
+    {
+        for(int fila=0; fila < this.matriz.length; fila++)
+        {
+            for(int columna=0; columna < this.matriz[fila].length; columna++)
+            {
+                System.out.printf("%d ", this.matriz[fila][columna]);
+            }
+
+            System.out.println();
+        }
+    }
+}
+    public void Transpuesta() {
+        this.matrizTrans = new int[fila][columna];
+        for (int fila = 0; fila <this.matriz.length; fila++){
+			for (int columna = 0; columna < this.matriz[fila].length; columna++)
+				matrizTrans[columna][fila] = matriz[fila][columna];
+        }
+            }
+
+    public void mostrarTranspuesta() {
+        System.out.println("Matriz Transpuesta");
+        for (int fila = 0; fila < this.matriz.length; fila++) {
+			for (int columna = 0; columna < this.matriz[fila].length; columna++)
+				System.out.print(matrizTrans[fila][columna] + " ");
+ 
+			System.out.println();
+		}
+}
+
+    public static void main(String args[])
+    {
+        Matriz matriz = new Matriz();
+
+        matriz.agregarMatriz();
+        matriz.mostrarMatriz();
+        matriz.Transpuesta();
+        matriz.mostrarTranspuesta();
+    }
+}
